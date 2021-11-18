@@ -1,2 +1,2 @@
 # ImageProcessing
-Some Image Processing Algorithms
+- Histogram Equalization - Stretching
