@@ -15,6 +15,8 @@ def PrewitEdgeDetector(image):
                 image[i + 1, j - 1]) - int(image[i + 1, j]) - int(image[i + 1, j + 1])
             prewitImage[i, j] = int(round(math.sqrt((xSum * xSum) + (ySum * ySum))))
 
+    cv2.imwrite("Prewit_Edge_Detector_before_thresholding.jpg", prewitImage)
+
     # Image thresholding
     for i in range(1, image.shape[0] - 1):
         for j in range(1, image.shape[1] - 1):
@@ -23,7 +25,6 @@ def PrewitEdgeDetector(image):
             else:
                 prewitImage[i, j] = 0
 
-    cv2.imshow("Prewit Edge Detector", prewitImage)
     cv2.imwrite("Prewit_Edge_Detector.jpg", prewitImage)
 
 
@@ -36,6 +37,8 @@ def RobertEdgeDetector(image):
             robertImage[i, j] = int(round(math.sqrt(((int(image[i, j]) - int(image[i + 1, j + 1])) ** 2) + (
                         (int(image[i + 1, j]) - int(image[i, j + 1])) ** 2))))
 
+    cv2.imwrite("Robert_Edge_Detector_before_thresholding.jpg", robertImage)
+
     # Image thresholding
     for i in range(1, image.shape[0] - 1):
         for j in range(1, image.shape[1] - 1):
@@ -44,7 +47,6 @@ def RobertEdgeDetector(image):
             else:
                 robertImage[i, j] = 0
 
-    cv2.imshow("Robert Edge Detector", robertImage)
     cv2.imwrite("Robert_Edge_Detector.jpg", robertImage)
 
 
